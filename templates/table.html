@@ -1,0 +1,34 @@
+<h3>Employees List</h3>
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+      <tr class="bg-info">
+        <th class="align-middle">Name</th>
+        <th class="align-middle">Phone</th>
+        <th class="align-middle">E-mail</th>
+        <th class="align-middle">Password</th>
+        <th class="text-center">
+          <div>Action modes</div>
+          <span ng-repeat="val in contextModes" ng-show="contextView">
+            <label class="font-weight-light m-1">
+              <input type="radio" ng-model="context.mode" value="{{ val.value }}" />
+              {{ val.label }}
+            </label>
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="height:56px" ng-repeat="employee in employees">
+        <td>{{ employee.name | uppercase }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>{{ employee.email | lowercase }}</td>
+        <td>{{ employee.password }}</td>
+        <td class="text-center" ng-include="setContextView()"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button class="btn btn-info" ng-click="editOrCreate()">Create</button>
+  </div>
+</div>
