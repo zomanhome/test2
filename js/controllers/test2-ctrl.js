@@ -16,15 +16,10 @@ myApp
       templateUrl: `${baseUrl}table.html`
     });
   })
-  .controller('test2Ctrl', function ($scope, $location, $firebaseArray) {
+  .controller('test2Ctrl', function ($scope, $location, employees) {
     $location.path('/table');
 
-    const ref = firebase.database().ref();
-
-    $scope.employees = $firebaseArray(ref);
-    $scope.employees.$loaded().then(() => {
-      $scope.employees.length ? ($scope.contextView = true) : ($scope.contextView = false);
-    });
+    $scope.employees = employees.get(checkEmployeesLength);
 
     $scope.contextList = [{
         name: 'Delete',
@@ -47,20 +42,12 @@ myApp
     ];
 
     $scope.create = function (employee) {
-      $scope.employees.$add(employee).then(() => {
-        $scope.employees.length ?
-          ($scope.contextView = true) :
-          ($scope.contextView = false);
-      });
+      employees.add(employee, checkEmployeesLength);
       $location.path('/table');
     };
 
     $scope.delete = function (employee) {
-      $scope.employees.$remove(employee).then(() => {
-        $scope.employees.length ?
-          ($scope.contextView = true) :
-          ($scope.contextView = false);
-      });
+      employees.delete(employee, checkEmployeesLength);
     };
 
     $scope.editOrCreate = function (employee) {
@@ -69,7 +56,7 @@ myApp
     };
 
     $scope.update = function (employee) {
-      $scope.employees.$save(employee);
+      employees.update(employee);
       $location.path('/table');
     };
 
@@ -120,4 +107,8 @@ myApp
           break;
       }
     };
+
+    function checkEmployeesLength() {
+      $scope.employees.length ? ($scope.contextView = true) : ($scope.contextView = false);
+    }
   });

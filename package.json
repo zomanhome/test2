@@ -1,14 +1,14 @@
 {
   "name": "test2",
   "version": "1.0.0",
-  "description": "",
+  "description": "angularjs test task",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/http-server -o"
   },
   "keywords": [],
-  "author": "",
+  "author": "asokole",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.7.8",
