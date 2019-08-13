@@ -3,9 +3,7 @@
     .module("myApp", ["ngRoute", "firebase"])
     .config(function($routeProvider) {
       let baseUrl = "templates/";
-      if (document.location.host.indexOf("github") !== -1) {
-        baseUrl = "/test2/templates/";
-      }
+
       $routeProvider.when("/table", {
         templateUrl: `${baseUrl}table.html`
       });
@@ -21,9 +19,6 @@
     .module("myApp")
     .controller("test2Ctrl", function($scope, $location, employees) {
       $scope.employees = employees.get(checkEmployeesLength);
-
-      $location.path("/table");
-
       $scope.contextList = [
         {
           name: "Delete",
@@ -45,6 +40,8 @@
           label: "Buttons"
         }
       ];
+
+      $location.path("/table");
 
       $scope.create = function(employee) {
         employees.add(employee, checkEmployeesLength);
@@ -82,23 +79,13 @@
       };
 
       $scope.setContextView = function() {
-        if ($scope.context.mode === "buttons") {
-          if (document.location.host.indexOf("github") !== -1) {
-            return "/test2/templates/context-buttons.html";
-          }
+        if ($scope.context.mode === "buttons")
           return "templates/context-buttons.html";
-        }
-        if ($scope.context.mode === "list") {
-          if (document.location.host.indexOf("github") !== -1) {
-            return "/test2/templates/context-list.html";
-          }
+        if ($scope.context.mode === "list")
           return "templates/context-list.html";
-        }
+
         // first time
         document.querySelector('input[type="radio"]').checked = true;
-        if (document.location.host.indexOf("github") !== -1) {
-          return "/test2/templates/context-list.html";
-        }
         return "templates/context-list.html";
       };
 

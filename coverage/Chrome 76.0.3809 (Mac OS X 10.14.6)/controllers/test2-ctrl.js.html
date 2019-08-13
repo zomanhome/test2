@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">44.68% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>22/55</span>
+        <span class='fraction'>21/47</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.55% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/22</span>
+        <span class='fraction'>0/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">25% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">44.68% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>22/55</span>
+        <span class='fraction'>21/47</span>
       </div>
     </div>
   </div>
@@ -152,26 +152,11 @@
 107
 108
 109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+110</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,9 +173,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,6 +194,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -252,20 +236,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -292,9 +266,7 @@
     .module("myApp", ["ngRoute", "firebase"])
     .config(function($routeProvider) {
       let baseUrl = "templates/";
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (document.location.host.indexOf("github") !== -1) {
-<span class="cstat-no" title="statement not covered" >        baseUrl = "/test2/templates/";</span>
-      }
+&nbsp;
       $routeProvider.when("/table", {
         templateUrl: `${baseUrl}table.html`
       });
@@ -310,9 +282,6 @@
     .module("myApp")
     .controller("test2Ctrl", function($scope, $location, employees) {
       $scope.employees = employees.get(checkEmployeesLength);
-&nbsp;
-      $location.path("/table");
-&nbsp;
       $scope.contextList = [
         {
           name: "Delete",
@@ -334,6 +303,8 @@
           label: "Buttons"
         }
       ];
+&nbsp;
+      $location.path("/table");
 &nbsp;
       $scope.create = <span class="fstat-no" title="function not covered" >function(employee) {</span>
 <span class="cstat-no" title="statement not covered" >        employees.add(employee, checkEmployeesLength);</span>
@@ -371,23 +342,13 @@
       };
 &nbsp;
       $scope.setContextView = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >        if ($scope.context.mode === "buttons") {</span>
-<span class="cstat-no" title="statement not covered" >          if (document.location.host.indexOf("github") !== -1) {</span>
-<span class="cstat-no" title="statement not covered" >            return "/test2/templates/context-buttons.html";</span>
-          }
+<span class="cstat-no" title="statement not covered" >        if ($scope.context.mode === "buttons")</span>
 <span class="cstat-no" title="statement not covered" >          return "templates/context-buttons.html";</span>
-        }
-<span class="cstat-no" title="statement not covered" >        if ($scope.context.mode === "list") {</span>
-<span class="cstat-no" title="statement not covered" >          if (document.location.host.indexOf("github") !== -1) {</span>
-<span class="cstat-no" title="statement not covered" >            return "/test2/templates/context-list.html";</span>
-          }
+<span class="cstat-no" title="statement not covered" >        if ($scope.context.mode === "list")</span>
 <span class="cstat-no" title="statement not covered" >          return "templates/context-list.html";</span>
-        }
+&nbsp;
         // first time
 <span class="cstat-no" title="statement not covered" >        document.querySelector('input[type="radio"]').checked = true;</span>
-<span class="cstat-no" title="statement not covered" >        if (document.location.host.indexOf("github") !== -1) {</span>
-<span class="cstat-no" title="statement not covered" >          return "/test2/templates/context-list.html";</span>
-        }
 <span class="cstat-no" title="statement not covered" >        return "templates/context-list.html";</span>
       };
 &nbsp;
@@ -415,7 +376,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 13 2019 13:45:55 GMT+0300 (EEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 13 2019 13:58:25 GMT+0300 (EEST)
 </div>
 </div>
 <script src="../prettify.js"></script>
