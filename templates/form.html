@@ -19,7 +19,7 @@
       <input class="form-control" ng-pattern="/^[1-9]/" name="phone" type="number" ng-model="currentEmployee.phone"
         ng-minlength="4" ng-maxlength="4" required />
       <div class="text-danger" ng-show="myForm.phone.$dirty && myForm.phone.$invalid">
-        Please enter a valid phone (4 digits, first not 0)
+        Please enter a valid phone (4 digits, the first must be not 0)
       </div>
     </div>
     <div class="form-group">

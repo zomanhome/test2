@@ -15,10 +15,13 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "node_modules/angular/angular.min.js",
-      "node_modules/angular-route/angular-route.min.js",
+      "node_modules/angular/angular.js",
+      "node_modules/angular-route/angular-route.js",
       "node_modules/angular-mocks/angular-mocks.js",
-      'js/controllers/*.js'
+      "node_modules/firebase/firebase.js",
+      "firebase-config.js",
+      "node_modules/angularfire/dist/angularfire.js",
+      "js/**/*.js",
     ],
 
 
@@ -74,5 +77,5 @@ module.exports = function (config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
+  });
 }
