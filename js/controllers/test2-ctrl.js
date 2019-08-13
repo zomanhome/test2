@@ -4,7 +4,7 @@
     .config(function($routeProvider) {
       let baseUrl = "templates/";
       if (document.location.host.indexOf("github") !== -1) {
-        baseUrl = "test2/templates/";
+        baseUrl = "/test2/templates/";
       }
       $routeProvider.when("/table", {
         templateUrl: `${baseUrl}table.html`
@@ -84,20 +84,20 @@
       $scope.setContextView = function() {
         if ($scope.context.mode === "buttons") {
           if (document.location.host.indexOf("github") !== -1) {
-            return "test2/templates/context-buttons.html";
+            return "/test2/templates/context-buttons.html";
           }
           return "templates/context-buttons.html";
         }
         if ($scope.context.mode === "list") {
           if (document.location.host.indexOf("github") !== -1) {
-            return "test2/templates/context-list.html";
+            return "/test2/templates/context-list.html";
           }
           return "templates/context-list.html";
         }
         // first time
         document.querySelector('input[type="radio"]').checked = true;
         if (document.location.host.indexOf("github") !== -1) {
-          return "test2/templates/context-list.html";
+          return "/test2/templates/context-list.html";
         }
         return "templates/context-list.html";
       };
