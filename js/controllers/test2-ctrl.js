@@ -1,19 +1,14 @@
 (function() {
   angular
-    .module("myApp", ["ngRoute", "firebase"])
-    .config(function($routeProvider) {
-      let baseUrl = "templates/";
-
-      $routeProvider.when("/table", {
-        templateUrl: `${baseUrl}table.html`
-      });
-      $routeProvider.when("/form", {
-        templateUrl: `${baseUrl}form.html`
-      });
-      $routeProvider.otherwise({
-        templateUrl: `${baseUrl}table.html`
-      });
-    });
+    .module("myApp", ["ngRoute", "firebase", "myApp.table", "myApp.form"])
+    .config([
+      "$locationProvider",
+      "$routeProvider",
+      function($locationProvider, $routeProvider) {
+        $locationProvider.hashPrefix("!");
+        $routeProvider.otherwise({ redirectTo: "/table" });
+      }
+    ]);
 
   angular
     .module("myApp")
@@ -40,8 +35,6 @@
           label: "Buttons"
         }
       ];
-
-      $location.path("/table");
 
       $scope.create = function(employee) {
         employees.add(employee, checkEmployeesLength);

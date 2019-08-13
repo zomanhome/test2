@@ -1,17 +1,14 @@
 // Karma configuration
 // Generated on Wed Aug 07 2019 16:35:35 GMT+0300 (EEST)
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
-
+    basePath: "",
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
-
+    frameworks: ["jasmine"],
 
     // list of files / patterns to load in the browser
     files: [
@@ -21,54 +18,47 @@ module.exports = function (config) {
       "node_modules/firebase/firebase.js",
       "firebase-config.js",
       "node_modules/angularfire/dist/angularfire.js",
-      "js/**/*.js",
+      "templates/*.js",
+      "js/**/*.js"
     ],
-
 
     // list of files / patterns to exclude
     exclude: [],
 
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'js/controllers/test2-ctrl.js': ['coverage']
+      "js/controllers/test2-ctrl.js": ["coverage"],
+      "templates/table.js": ["coverage"],
+      "templates/form.js": ["coverage"],
     },
-
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage'
+      type: "html",
+      dir: "coverage"
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
-
+    reporters: ["progress", "coverage"],
 
     // web server port
     port: 9876,
 
-
     // enable / disable colors in the output (reporters and logs)
     colors: true,
-
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
-
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
-
+    browsers: ["Chrome"],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -78,4 +68,4 @@ module.exports = function (config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   });
-}
+};

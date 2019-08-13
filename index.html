@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="myApp" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Employees</title>
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container" ng-controller="test2Ctrl" data-ng-view></div>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Employees</title>
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/firebase/firebase.js"></script>
+    <script src="node_modules/angularfire/dist/angularfire.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-mocks/angular-mocks.js"></script>
 
-<body>
-  <div class="container" ng-controller="test2Ctrl" ng-view></div>
-
-  <script src="node_modules/angular/angular.js"></script>
-  <script src="node_modules/firebase/firebase.js"></script>
-  <script src="node_modules/angularfire/dist/angularfire.js"></script>
-  <script src="node_modules/angular-route/angular-route.js"></script>
-  <script src="node_modules/angular-mocks/angular-mocks.js"></script>
-
-  <script src="firebase-config.js"></script>
-  <script src="js/controllers/test2-ctrl.js"></script>
-  <script src="js/services/employeers-service.js"></script>
-  <script src="js/directives/form-validator.js"></script>
-</body>
-
+    <script src="firebase-config.js"></script>
+    <script src="js/controllers/test2-ctrl.js"></script>
+    <script src="templates/table.js"></script>
+    <script src="templates/form.js"></script>
+    <script src="js/services/employeers-service.js"></script>
+    <script src="js/directives/form-validator.js"></script>
+  </body>
 </html>
