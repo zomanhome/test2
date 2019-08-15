@@ -4,6 +4,7 @@ angular.module("myApp").factory("employees", [
     const ref = firebase.database().ref();
     const employees = $firebaseArray(ref);
     let currentEmployee; // for exchange between table and form when edit
+    let currentContextMode; // from Action modes (table)
 
     return {
       get: function(f) {
@@ -26,6 +27,12 @@ angular.module("myApp").factory("employees", [
       },
       setCurrentEmployee: function(obj) {
         currentEmployee = obj;
+      },
+      getCurrentContextMode: function() {
+        return currentContextMode;
+      },
+      setCurrentContextMode: function(obj) {
+        currentContextMode = obj;
       }
     };
   }

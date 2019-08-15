@@ -26,6 +26,7 @@ angular
         }
       ];
       $scope.context = {};
+      $scope.context.mode = employees.getCurrentContextMode() || "buttons";
       $scope.contextModes = [
         {
           value: "list",
@@ -46,16 +47,9 @@ angular
           : employees.setCurrentEmployee({});
         $location.path("/form");
       };
-      // TODO: true/false
       $scope.setContextView = function() {
-        if ($scope.context.mode === "buttons")
-          return "templates/context-buttons.html";
-        if ($scope.context.mode === "list")
-          return "templates/context-list.html";
-
-        // first time
-        document.querySelector('input[type="radio"]').checked = true;
-        return "templates/context-list.html";
+        employees.setCurrentContextMode($scope.context.mode);
+        return `templates/context-${$scope.context.mode}.html`;
       };
       $scope.setAction = function(action, employee) {
         switch (action) {
