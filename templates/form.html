@@ -9,38 +9,86 @@
   <div class="panel-body">
     <div class="form-group">
       <label class="text-secondary">Name:</label>
-      <input class="form-control" name="name" ng-model="currentEmployee.name" ng-minlength="2" required />
-      <div class="text-danger" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+      <input
+        class="form-control"
+        name="name"
+        ng-model="currentEmployee.name"
+        ng-minlength="2"
+        required
+      />
+      <div
+        class="text-danger"
+        ng-show="myForm.name.$dirty && myForm.name.$invalid"
+      >
         Name must be at least 2 characters long
       </div>
     </div>
     <div class="form-group">
       <label class="text-secondary">Phone:</label>
-      <input class="form-control" ng-pattern="/^[1-9]/" name="phone" type="number" ng-model="currentEmployee.phone"
-        ng-minlength="4" ng-maxlength="4" required />
-      <div class="text-danger" ng-show="myForm.phone.$dirty && myForm.phone.$invalid">
+      <input
+        class="form-control"
+        ng-pattern="/^[1-9]/"
+        name="phone"
+        type="number"
+        ng-model="currentEmployee.phone"
+        ng-minlength="4"
+        ng-maxlength="4"
+        required
+      />
+      <div
+        class="text-danger"
+        ng-show="myForm.phone.$dirty && myForm.phone.$invalid"
+      >
         Please enter a valid phone (4 digits, the first must be not 0)
       </div>
     </div>
     <div class="form-group">
       <label class="text-secondary">E-mail:</label>
-      <input class="form-control" name="email" type="email" ng-model="currentEmployee.email" required />
-      <div class="text-danger" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+      <input
+        class="form-control"
+        name="email"
+        type="email"
+        ng-model="currentEmployee.email"
+        required
+      />
+      <div
+        class="text-danger"
+        ng-show="myForm.email.$dirty && myForm.email.$invalid"
+      >
         Please enter a valid e-mail address
       </div>
     </div>
     <div class="form-group">
       <label class="text-secondary">Password:</label>
-      <input class="form-control" name="password" type="password" ng-model="currentEmployee.password" ng-minlength="3"
-        required />
-      <div class="text-danger" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+      <input
+        class="form-control"
+        name="password"
+        type="password"
+        ng-model="currentEmployee.password"
+        ng-minlength="3"
+        required
+      />
+      <div
+        class="text-danger"
+        ng-show="myForm.password.$dirty && myForm.password.$invalid"
+      >
         Password must be at least 3 characters long
       </div>
       <label class="text-secondary">Confirm password:</label>
-      <input class="form-control" name="confirmPassword" type="password" ng-model="currentEmployee.confirmPassword"
-        equal="{{currentEmployee.password}}" required />
-      <div ng-show="myForm.confirmPassword.$dirty && myForm.confirmPassword.$error.equal" class="text-danger">Password
-        doesn't match above</div>
+      <input
+        class="form-control"
+        name="confirmPassword"
+        type="password"
+        ng-model="currentEmployee.confirmPassword"
+        equal="{{currentEmployee.password}}"
+        required
+      />
+      <div
+        ng-show="myForm.confirmPassword.$dirty && myForm.confirmPassword.$error.equal"
+        class="text-danger"
+      >
+        Password doesn't match above
+      </div>
     </div>
     <button type="submit" class="btn btn-info">Save</button>
     <button class="btn btn-info" ng-click="cancelEdit()">Cancel</button>

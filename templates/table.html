@@ -9,9 +9,14 @@
         <th class="align-middle">Password</th>
         <th class="text-center">
           <div>Action modes</div>
+          <!--Rewrite-->
           <span ng-repeat="val in contextModes" ng-show="contextView">
             <label class="font-weight-light m-1">
-              <input type="radio" ng-model="context.mode" value="{{ val.value }}" />
+              <input
+                type="radio"
+                ng-model="context.mode"
+                value="{{ val.value }}"
+              />
               {{ val.label }}
             </label>
           </span>

@@ -16,8 +16,8 @@ module.exports = function(config) {
       "node_modules/angular-route/angular-route.js",
       "node_modules/angular-mocks/angular-mocks.js",
       "node_modules/firebase/firebase.js",
-      "firebase-config.js",
       "node_modules/angularfire/dist/angularfire.js",
+      "firebase-config.js",
       "templates/*.js",
       "js/**/*.js"
     ],
@@ -30,7 +30,7 @@ module.exports = function(config) {
     preprocessors: {
       "js/controllers/test2-ctrl.js": ["coverage"],
       "templates/table.js": ["coverage"],
-      "templates/form.js": ["coverage"],
+      "templates/form.js": ["coverage"]
     },
 
     coverageReporter: {
