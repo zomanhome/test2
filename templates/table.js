@@ -14,7 +14,7 @@ angular
     "$location",
     "employees",
     function($scope, $location, employees) {
-      $scope.employees = employees.get(checkEmployeesLength);
+      $scope.employees = employees.get(_checkEmployeesLength);
       $scope.contextList = [
         {
           name: "Delete",
@@ -37,20 +37,24 @@ angular
           label: "Buttons"
         }
       ];
+      $scope.checkEmployeesLength = _checkEmployeesLength;
 
       $scope.delete = function(employee) {
-        employees.delete(employee, checkEmployeesLength);
+        employees.delete(employee, _checkEmployeesLength);
       };
+
       $scope.editOrCreate = function(employee) {
         employee
           ? employees.setCurrentEmployee(employee)
           : employees.setCurrentEmployee({});
         $location.path("/form");
       };
+
       $scope.setContextView = function() {
         employees.setCurrentContextMode($scope.context.mode);
         return `templates/context-${$scope.context.mode}.html`;
       };
+
       $scope.setAction = function(action, employee) {
         switch (action) {
           case "delete":
@@ -62,7 +66,7 @@ angular
         }
       };
 
-      function checkEmployeesLength() {
+      function _checkEmployeesLength() {
         $scope.employees.length
           ? ($scope.contextView = true)
           : ($scope.contextView = false);
