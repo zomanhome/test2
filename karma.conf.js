@@ -30,7 +30,8 @@ module.exports = function(config) {
     preprocessors: {
       "js/controllers/test2-ctrl.js": ["coverage"],
       "templates/table.js": ["coverage"],
-      "templates/form.js": ["coverage"]
+      "templates/form.js": ["coverage"],
+      "js/services/employeers-service.js": ["coverage"]
     },
 
     coverageReporter: {

@@ -80,12 +80,12 @@ describe("myApp.table.controller", function() {
   });
 
   describe("checkEmployeesLength", function() {
-    it("Set contextView to true or false to depends on Employees length", function() {
+    it("Set contextView to true", function() {
       this.scope.employees = [1];
       this.scope.checkEmployeesLength();
       expect(this.scope.contextView).toEqual(true);
     });
-    it("Set contextView to true or false to depends on Employees length", function() {
+    it("Set contextView to false", function() {
       this.scope.employees = [];
       this.scope.checkEmployeesLength();
       expect(this.scope.contextView).toEqual(false);
