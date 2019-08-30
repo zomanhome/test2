@@ -14,7 +14,10 @@ angular
     "$location",
     "employees",
     function($scope, $location, employees) {
-      $scope.employees = employees.get(_checkEmployeesLength);
+      employees.get().then(data => {
+        $scope.employees = data;
+        $scope.checkEmployeesLength();
+      });
       $scope.contextList = [
         {
           name: "Delete",
@@ -40,7 +43,9 @@ angular
       $scope.checkEmployeesLength = _checkEmployeesLength;
 
       $scope.delete = function(employee) {
-        employees.delete(employee, _checkEmployeesLength);
+        employees.delete(employee).then(function() {
+          $scope.checkEmployeesLength();
+        });
       };
 
       $scope.editOrCreate = function(employee) {

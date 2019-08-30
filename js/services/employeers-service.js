@@ -7,17 +7,14 @@ angular.module("myApp").factory("employees", [
     let currentContextMode; // from Action modes (table)
 
     return {
-      get: function(f) {
-        employees.$loaded(() => f());
-        return employees;
+      get: function() {
+        return employees.$loaded();
       },
-      add: function(obj, f) {
-        return employees.$add(obj).then(() => {
-          if (f) f();
-        });
+      add: function(obj) {
+        return employees.$add(obj);
       },
-      delete: function(obj, f) {
-        return employees.$remove(obj).then(() => f());
+      delete: function(obj) {
+        return employees.$remove(obj);
       },
       update: function(obj) {
         return employees.$save(obj);

@@ -11,25 +11,54 @@ describe("myApp.table.controller", function() {
     ]);
   });
 
-  beforeEach(inject(function($rootScope, $controller, $location) {
+  beforeEach(inject(function($rootScope, $controller, $location, $q) {
     this.scope = $rootScope.$new();
+    this.q = $q;
+    this.rootScope = $rootScope;
     this.location = $location;
     this.location.path = jasmine.createSpy("location");
+    this.deleteDefer = this.q.defer();
+    this.getDefer = this.q.defer();
+    this.mockEmployee.delete.and.returnValue(this.deleteDefer.promise);
+    this.mockEmployee.get.and.returnValue(this.getDefer.promise);
+    this.scope.checkEmployeesLength = jasmine.createSpy("checkEmployeesLength");
     this.TableCtrl = $controller("TableCtrl", {
       $scope: this.scope,
       employees: this.mockEmployee,
       location: this.location.path
     });
+    this.rootScope.$apply();
   }));
 
   it("Verify whether TableCtrl controller exists", function() {
     expect(this.TableCtrl).toBeDefined();
   });
 
+  describe("get", function() {
+    beforeEach(function() {
+      this.getDefer.resolve([1, 2, 3]);
+      this.scope.$digest();
+    });
+
+    it("first method", function() {
+      expect(this.scope.employees).toEqual([1, 2, 3]);
+    });
+  });
+
   describe("delete", function() {
+    beforeEach(function() {
+      this.deleteDefer.resolve();
+      this.scope.$digest();
+    });
+
     it("Delete employee from table", function() {
+      this.scope.checkEmployeesLength = jasmine.createSpy(
+        "checkEmployeesLength"
+      );
       this.scope.delete();
-      expect(this.mockEmployee.delete).toHaveBeenCalled();
+      this.scope.employees = [];
+      this.rootScope.$apply();
+      expect(this.scope.checkEmployeesLength).toHaveBeenCalled();
     });
   });
 
